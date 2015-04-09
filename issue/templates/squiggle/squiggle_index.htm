@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Squiggles - Sirius{% endblock %}
+{% block content %}
+{% autoescape off %}
+<div class="row">
+  <div class="col-md-12">
+    <h1>Squiggles</h1>
+    <p>Welcome to the Sirius Squiggle Gallery!</p>
+    <p>Squiggles are modifications of the Sirius logo for a special event. Anybody can send in squiggles, and we'll put them up if we can. But remember to send them early, because we'll need time to plan it and put it in the next issue of Sirius! Now you can <a href="/squiggle/about/">learn more</a> or see the recent squiggles below...</p>
+  </div>
+</div>
+<div class="row">{% for squiggle in squiggle_list %}
+  <div class="col-sm-4 col-md-3">     
+    <a href="{{squiggle.get_absolute_url}}" class="thumbnail"><img src="{{squiggle.picture.url}}" width=200 class="img-responsive">
+    <div class="caption"><p>{% if squiggle.picture.caption %}<b>{{squiggle.picture.caption}}</b><br>for {% endif %}{{squiggle.event1}} {{squiggle.date1|date:"(d M Y)"}}</p></div>
+    </a>    
+  </div>
+{% endfor %}
+  <div class="col-sm-4 col-md-3">     
+    <a href="{% now 'Y' %}" class="thumbnail">
+      See all squiggles for {% now "Y" %}
+    </a>    
+  </div>
+  </div>
+<div class="row">
+  <div class="col-md-12">
+    
+  </div>
+</div>
+{% endautoescape %}
+{% endblock %}

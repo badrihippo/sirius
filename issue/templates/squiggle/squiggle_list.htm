@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Squiggles {% if year %} ({{year|date:'Y'}}) {% endif %}- Sirius{% endblock %}
+{% block content %}
+{% autoescape off %}
+<div class="row">
+  <div class="col-md-12">
+    <h1>Squiggles{% if year %} <small>(for {{year|date:'Y'}})</small>{% endif %}</h1>
+  </div>
+</div>
+<div class="row">{% for squiggle in squiggle_list %}
+  <div class="col-sm-4 col-md-3">     
+    <a href="{{squiggle.get_absolute_url}}" class="thumbnail"><img src="{{squiggle.picture.url}}" width=200 class="img-responsive">
+    <div class="caption"><p>{% if squiggle.picture.caption %}<b>{{squiggle.picture.caption}}</b><br>for {% endif %}{{squiggle.event1}} {{squiggle.date1|date:"(d M Y)"}}</p></div>
+    </a>    
+  </div>
+{% endfor %}</div>
+<div class="row">
+  <div class="col-md-12">
+    <ul class="pager">
+      {% if previous_year %}<li class="previous"><a href="{% url 'squiggles-by-year' year=previous_year.year %}">&larr; {{previous_year|date:'Y'}} squiggles</a></li>{% endif %}
+      {% if next_year %}<li class="next"><a href="{% url 'squiggles-by-year' year=next_year.year %}">{{next_year|date:'Y'}} squiggles &rarr;</a></li>{% endif %}
+    </ul>
+  </div>
+</div>
+{% endautoescape %}
+{% endblock %}

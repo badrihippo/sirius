@@ -1,0 +1,15 @@
+################################# Renamer Log ##################################
+# File : 10 files
+# Time : Tue, 31 Dec 2013 14:40:01
+################################################################################
+
+500.bootstrapped.html is converted to 500.html
+app_index.bootstrapped.html is converted to app_index.html
+base.bootstrapped.html is converted to base.html
+base_site.bootstrapped.html is converted to base_site.html
+change_form.bootstrapped.html is converted to change_form.html
+change_list.bootstrapped.html is converted to change_list.html
+delete_confirmation.bootstrapped.html is converted to delete_confirmation.html
+delete_selected_confirmation.bootstrapped.html is converted to delete_selected_confirmation.html
+invalid_setup.bootstrapped.html is converted to invalid_setup.html
+object_history.bootstrapped.html is converted to object_history.html

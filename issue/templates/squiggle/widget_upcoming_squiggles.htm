@@ -1,0 +1,17 @@
+{% if upcoming_squiggles %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 class="panel-title">Upcoming Squiggles</h1>
+  </div>
+  <div class="panel-body">
+    Here is the list of upcoming squiggle events, along with their submission deadlines.
+  </div>
+  <ul class="list-group">
+    {% for s in upcoming_squiggles %}
+    <li class="list-group-item">{{s.event}}<span class="badge">{{s.last_date|date:"d M Y"}}</span>
+    <br><span class="text-muted">Event date: {{s.date|date:"d M Y"}}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+  

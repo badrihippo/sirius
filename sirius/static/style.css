@@ -1,0 +1,25 @@
+.nav-sirius-main {
+  margin-top: 2em;
+  list-style: disc url("/static/list-arrow.gif") inside;
+ }
+.nav-sirius-main li {
+  font-size: 18px;
+}
+.nav-sirius-main li.big {
+  font-size: 20px;
+}
+.nav-sirius-main span.text {
+  padding-left: 1em;
+}
+.nav-sirius-main a {
+  color: black;
+}
+.article-snippet img.img {
+  margin: 0 1em 1em 0;
+}
+.img-sirius-thumbnail{
+  max-height: 150px;
+}
+.article-snippet {
+  min-height: 220px;
+}

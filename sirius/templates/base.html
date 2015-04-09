@@ -1,0 +1,67 @@
+{% load static %}<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}Sirius{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'style.css' %}" rel="stylesheet" media="screen">
+    <!--FontAwesome-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" style="max-width: 1000px;">
+      <div class="header">
+        <div class="row">
+          <div class="col-md-7">
+            <img src="{% if csquig %}{{csquig.url}}{% else %}http://i.minus.com/ib1bo4hxwVLupQ.png {% endif %}" alt="Sirius" class="img-responsive">
+          </div>
+          <div class="col-md-5">
+            <ul class="nav nav-sirius-main nav-stacked" style="list-style: disc url('/static/list-arrow.gif') inside;">
+              <li class="big"><a href="/">Sirius Online (beta)</a></li>
+              <li><a href="/article/"><span class="glyphicon glyphicon-play"> </span> Articles</a></li>
+              <li><a href="/squiggle/"><span class="glyphicon glyphicon-play"> </span> Squiggles</a></li>
+              <li><a href="/sample/"><span class="glyphicon glyphicon-play"> </span> Sample Copy</a></li>
+              <li><span class="text">You are not signed in</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="content" class="col-lg-12">{% block content %}
+        <div class="jumbotron">
+          <p>Welcome to the Sirius website!<br>
+          This website is not fully complete yet, but feel free to look around at what <em>is</em> complete.<br>
+          If you want, you can see a sample copy of Sirius</p>
+          <p><a href="/sample/" class="btn btn-lg btn-default">View sample copy</a> <a href="/article/" class="btn btn-lg btn-primary">Article list</a></p>
+        </div>
+        {% endblock %}</div>
+        <!--<div class="col-lg-4 sirius-sidebar">
+          {% include "squiggle/widget_upcoming_squiggles.htm" %}
+        </div>-->
+      </div>
+      <hr>
+      <div class="footer">
+        &copy; Sirius 2013
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//my.sssnet.tk/static/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>-
+  </body>
+</html>

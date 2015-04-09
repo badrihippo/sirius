@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Issue #{{issue.number}} "{{issue.name}}" - Sirius{% endblock %}
+{% block content %}
+{% autoescape off %}
+<h1>Sirius, {{issue.start_date|date:'j M'}} - {{issue.end_date|date:'j M Y'}}</h1>
+<div class="row">
+  <div class="col-md-4 col-sm-12"><img src="{{issue.cover_picture.get_absolute_url}}" alt="cover" class="img-responsive"></div>
+  <div class="col-md-8 col-sm-12">
+    <ul class="list-group">
+      {% for a in issue.article_set.all %}
+      <a href="{{a.get_absolute_url}}"><li class="list-group-item">{{a.title}}{% if a.part_number %}<span class="badge">Part {{a.part_number}}</span>{% endif %}</li></a>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Editorial</h2>
+    {% if issue.editorial_set.exists %}{{issue.editorial_set.all.0.content}}{% else %}<p>Sorry.<br>Normally the editorial would come here, but it doesn't seem to have been uploaded yet.</p>{% endif %}
+  </div>
+</div>
+{% endautoescape %}
+{% endblock %}

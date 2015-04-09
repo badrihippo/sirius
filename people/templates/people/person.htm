@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Person: {{person.name}} - Sirius{% endblock %}
+{% block content %}
+<h1>{{person.name}}</h1>
+<div class="row">
+  <div class="col-md-3"><img src="{{person.photo|default:'http://placehold.it/150.jpg&text=No+Photo'}}" align=right class="img-rounded img-responsive"></div>
+  <div class="col-md-9">
+    {% autoescape off %}
+    {{person.about|default:'<p class="muted">No information available</p>'}}
+    {% endautoescape %}
+  </div>
+</div>
+<br>
+<ul class="list-group">
+  <li class="list-group-item"><h3 class="list-group-item-heading">Articles by {{person.name}}</h2></li>
+  {% for article in person.article_set.all %}
+  <a href="{{article.get_absolute_url}}"><li class="list-group-item">{{article.title}}{% if article.part_number %}<span class="badge">Part {{article.part_number}}</span>{% endif %}</li></a>
+  {% endfor %}
+</ul>
+{% endblock %}

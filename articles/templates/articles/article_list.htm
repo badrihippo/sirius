@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Article list - Sirius{% endblock %}
+{% block content %}
+{% autoescape off %}
+{% for article in article_list %}
+<div class="article-snippet">
+    <h2><a href="{{article.get_absolute_url}}">{{article.title}}</a> <small>{% for tag in article.tags.all %}<span class="label label-default">{{tag}}</span> {% endfor %}</small></h2>
+    {% if article.series %}<p class="text-muted">Part {{article.part_number}}{% if article.part_name %}: {{article.part_name}}{% endif %}</p>{% endif %}
+    <!--<img class="img img-responsive img-thumbnail img-sirius-thumbnail pull-left" src="{% if article.thumbnail %}{{article.thumbnail.get_absolute_url}}{% else %}http://placehold.it/200x150&text={{article.title}}{% endif %}" alt="Thumbnail for {{article.title}}" />-->
+    {% if article.blurb %}{{article.blurb}}{% else %}{{article.content|striptags|truncatewords:60}}{% endif %}
+    <p class="pull-right"><a href="{{article.get_absolute_url}}" class="btn btn-default">{% if article.section.icon_right %}<img height="30px" src="{{article.section.icon_right}}" alt="[{{article.section}}]">{% else %}[{{article.section}}]{% endif %} Read more</a></p>
+</div>
+{% endfor %}
+{% endautoescape %}
+{% endblock %}
