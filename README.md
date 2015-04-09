@@ -6,4 +6,4 @@ In addition to displaying published articles, the website also keeps track of:
  * [Squiggles](http://sirius.sssnet.tk/squiggles/about/), which are like Google's Doodles, and appear on the cover of the issue covering that event
  * Sources, Copyrights and Credits for photos and pictures
 
- I've made this repository mainly for myself to work on, but feel free to improve it if you want!
+I've made this repository mainly for myself to work on, but feel free to improve it if you want!
