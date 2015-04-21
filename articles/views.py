@@ -12,3 +12,9 @@ class ArticleDetail(generic.DetailView):
 class ArticleList(generic.ListView):
     model = Article
     template_name = 'articles/article_list.htm'
+    
+    def get_context_data(self, **kwargs):
+        context = super(ArticleList, self).get_context_data(**kwargs)
+        context['page_icon'] = 'http://i.minus.com/iDhR7DotZgasx.png'
+        context['page_section'] = 'Articles'
+        return context

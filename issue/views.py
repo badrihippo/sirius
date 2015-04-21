@@ -25,6 +25,7 @@ def get_upcoming_squiggles():
 class IssueDetail(generic.DetailView):
     model = Issue
     template_name = 'issue/issue.htm'
+
 class IssueList(generic.ListView):
     model = Issue
     template_name = 'issue/issue_list.htm'
@@ -32,6 +33,13 @@ class IssueList(generic.ListView):
 class SquiggleByID(generic.DetailView):
     model = Squiggle
     template_name = 'squiggle/squiggle.htm'
+
+    def get_context_data(self, **kwargs):
+        context = super(SquiggleByID, self).get_context_data(**kwargs)
+        context['page_icon'] = 'http://i.minus.com/ig02T43SlY1pD.png'
+        context['page_section'] = 'Squiggles'
+        return context
+        
 class SquiggleByDate(generic.DetailView):    
     model = Squiggle
     template_name = 'squiggle/squiggle.htm'
@@ -43,12 +51,24 @@ class SquiggleByDate(generic.DetailView):
             date1__year=year,
             date1__month=month,
             date1__day=day)
+            
+    def get_context_data(self, **kwargs):
+        context = super(SquiggleByDate, self).get_context_data(**kwargs)
+        context['page_icon'] = 'http://i.minus.com/ig02T43SlY1pD.png'
+        context['page_section'] = 'Squiggles'
+        return context
 
 class SquigglesByYear(generic.YearArchiveView):
     model = Squiggle
     date_field = 'date1'
     make_object_list = True
     template_name = 'squiggle/squiggle_list.htm'
+
+    def get_context_data(self, **kwargs):
+        context = super(SquigglesByYear, self).get_context_data(**kwargs)
+        context['page_icon'] = 'http://i.minus.com/ig02T43SlY1pD.png'
+        context['page_section'] = 'Squiggles'
+        return context
 # TODO: Year List, Month List
 
 
@@ -56,3 +76,9 @@ class SquiggleHome(generic.ListView):
     model = Squiggle
     queryset = Squiggle.objects.all()[:4]
     template_name = 'squiggle/squiggle_index.htm'
+
+    def get_context_data(self, **kwargs):
+        context = super(SquiggleHome, self).get_context_data(**kwargs)
+        context['page_icon'] = 'http://i.minus.com/ig02T43SlY1pD.png'
+        context['page_section'] = 'Squiggles'
+        return context
