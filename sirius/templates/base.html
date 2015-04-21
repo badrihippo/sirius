@@ -23,25 +23,61 @@
     </style>
   </head>
   <body>
-    <div class="container" style="max-width: 1000px;">
-      <div class="header">
-        <div class="row">
-          <div class="col-md-7">
-            <img src="{% if csquig %}{{csquig.url}}{% else %}http://i.minus.com/ib1bo4hxwVLupQ.png {% endif %}" alt="Sirius" class="img-responsive">
-          </div>
-          <div class="col-md-5">
-            <ul class="nav nav-sirius-main nav-stacked" style="list-style: disc url('/static/list-arrow.gif') inside;">
-              <li class="big"><a href="/">Sirius Online (beta)</a></li>
-              <li><a href="/article/"><span class="glyphicon glyphicon-play"> </span> Articles</a></li>
-              <li><a href="/squiggle/"><span class="glyphicon glyphicon-play"> </span> Squiggles</a></li>
-              <li><a href="/sample/"><span class="glyphicon glyphicon-play"> </span> Sample Copy</a></li>
-              <li><span class="text">You are not signed in</span></li>
-            </ul>
-          </div>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-sirius-main">
+      <div class="container container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            <img src="{{page_icon|default:'http://i.minus.com/ifu4PFiSLwp0h.png'}}" alt="Page icon" class="sirius-page-icon" />
+            <span>{{page_section|default:'Sirius'}}</span>
+          </a>
         </div>
-      </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="{% url 'list-issues' %}">Issues</a></li>
+            <li><a href="{% url 'list-articles' %}">Articles</a></li>
+            <li><a href="{% url 'list-squiggles' %}">Squiggles</a></li>
+            <li><a href="/sample/">Sample Copy</a></li>
+          </ul>
+          <p class="navbar-text navbar-right">You cannot sign in.</p>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+
+
+    
+    <div class="container container-main">
       <div class="row">
-        <div id="content" class="col-lg-12">{% block content %}
+        <div id="content" class="col-md-12">{% block content %}
+
+        <header class="header">
+          <div class="row">
+            <div class="col-md-7 col-sm-7 col-xs-12">
+              <img src="{% if csquig %}{{csquig.url}}{% else %}http://i.minus.com/ib1bo4hxwVLupQ.png {% endif %}" alt="Sirius" class="img-responsive">
+            </div>
+            <nav class="col-md-5 col-sm-5 hidden-xs">
+              <ul class="nav nav-sirius-main nav-stacked" style="list-style: disc url('/static/list-arrow.gif') inside;">
+                <li class="big"><a href="/">Sirius Online (beta)</a></li>
+                <li><a href="{% url 'list-articles' %}"><span class="fa fa-play"> </span> Articles</a></li>
+                <li><a href="{% url 'list-squiggles' %}"><span class="fa fa-play"> </span> Squiggles</a></li>
+                <li><a href="/sample/"><span class="fa fa-play"> </span> Sample Copy</a></li>
+                <li><span class="text">You are not signed in</span></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        
         <div class="jumbotron">
           <p>Welcome to the Sirius website!<br>
           This website is not fully complete yet, but feel free to look around at what <em>is</em> complete.<br>
@@ -54,9 +90,9 @@
         </div>-->
       </div>
       <hr>
-      <div class="footer">
+      <footer class="footer">
         &copy; Sirius 2013
-      </div>
+      </footer>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

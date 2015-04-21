@@ -1,7 +1,6 @@
 .nav-sirius-main {
   margin-top: 2em;
-  list-style: disc url("/static/list-arrow.gif") inside;
- }
+}
 .nav-sirius-main li {
   font-size: 18px;
 }
@@ -22,4 +21,23 @@
 }
 .article-snippet {
   min-height: 220px;
+}
+.container {
+  max-width: 1000px;
+}
+.container-main {
+  padding-top: 60px;
+}
+.sirius-page-icon {
+  height: 3em;
+  background: #fff;
+  border-radius: 1.5em;
+  border: 1px solid #fff;
+  z-index: 1;
+  position: fixed;
+}
+
+/* For Sirius icon in top navbar */
+.navbar-brand span {
+  margin-left: 3.5em;
 }
