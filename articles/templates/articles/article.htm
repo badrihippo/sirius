@@ -17,7 +17,7 @@
 </ul>
 {% endif %}
 <hr>
-<div class="footer">Article by {% for p in article.Persons.all %}<a href="/person/{{p.id}}">{{p.name}}</a>, {% endfor %}published {% if article.issue %} on {{article.issue.start_date}} in <a href="{{article.issue.get_absolute_url}}">Sirius #{{article.issue.number}} "{{article.issue.name}}"</a>.{% else %}online on {{article.date|date:'d M Y'}} at {{article.date|date:'P'}}{% endif %}{% if article.edit_date %}, and was last edited on {{article.edit_date|date:'d M Y'}} at {{article.edit_date|date:'P'}}{% endif %}{% if article.footer %} {{article.footer}}{% endif %}</div>
+<div class="footer">Article by {% for p in article.persons.all %}<a href="/person/{{p.id}}">{{p.name}}</a>, {% endfor %}published {% if article.issue %} on {{article.issue.start_date}} in <a href="{{article.issue.get_absolute_url}}">Sirius #{{article.issue.number}} "{{article.issue.name}}"</a>.{% else %}online on {{article.date|date:'d M Y'}} at {{article.date|date:'P'}}{% endif %}{% if article.edit_date %}, and was last edited on {{article.edit_date|date:'d M Y'}} at {{article.edit_date|date:'P'}}{% endif %}{% if article.footer %} {{article.footer}}{% endif %}</div>
 {% endautoescape %}
 <hr>
 <div id="disqus_thread"></div>
