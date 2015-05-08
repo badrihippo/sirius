@@ -6,7 +6,7 @@
 {% elif article.header_image %}<h1><img src="{{article.header_image.get_absolute_url}}" alt="{{article.title}}" class="img-responsive center-block"></h1>{% endif %}
 {% if article.show_blurb %}<div class="lead">{{article.blurb|safe}}</div>{% endif %}
 {% autoescape off %}
-{{article.content}}<span class="glyphicon glyphicon-stop"></span>
+{{article.content}}<span class="fa fa-stop"></span>
 {% if article.series %}
 <br>
 <ul class="pager">
