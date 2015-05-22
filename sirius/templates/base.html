@@ -64,7 +64,11 @@
         <header class="header">
           <div class="row">
             <div class="col-md-7 col-sm-7 col-xs-12">
-              <img src="{% if csquig %}{{csquig.url}}{% else %}http://i.minus.com/ib1bo4hxwVLupQ.png {% endif %}" alt="Sirius" class="img-responsive">
+              {% if csquig %}
+                <a href="{{csquig.get_absolute_url}}" title="{% if csquig.picture.caption %}'{{csquig.picture.caption}}'{% else %}Squiggle{% endif %} for {{csquig.event1}} ({{csquig.date1|date:'d M Y'}}){% if csquig.event2 %} and {{csquig.event2}} ({{csquig.date1|date:'d M Y'}}){% endif %}">
+              {% endif %}
+                <img src="{% if csquig %}{{csquig.picture.get_absolute_url}}{% else %}http://i.minus.com/ib1bo4hxwVLupQ.png {% endif %}" alt="Sirius" class="img-responsive">
+              {% if csquig %}</a>{% endif %}
             </div>
             <nav class="col-md-5 col-sm-5 hidden-xs">
               <ul class="nav nav-sirius-main nav-stacked" style="list-style: disc url('/static/list-arrow.gif') inside;">
